@@ -46,13 +46,13 @@ def create_user():
     print ("Please provide some information to create your account")
     print ("======================================================")
     print ("What is your first name?")
-    first_name = raw_input(">>> ")
+    first_name = input(">>> ")
     print ("What is your last name?")
-    last_name = raw_input(">>> ")
+    last_name = input(">>> ")
     username = first_name.lower()[0]+last_name.lower()
     print ("Your username is:",username)
     print ("Please create a password:")
-    password = raw_input(">>> ")
+    password = input(">>> ")
     file_name = username+"_weight_loss_data.csv"
     new_users = users.append([{'FIRST_NAME':first_name, 'LAST_NAME':last_name, 'USERNAME':username, 'PASSWORD':password, 'DATA_FILE':file_name}], ignore_index=True)
     new_users.to_csv('test_usernames.csv')
@@ -63,9 +63,9 @@ def password_change():
         new_password = ""
         while True:
             print ("Enter a new password")
-            pass_attempt1 = raw_input(">>> ")
+            pass_attempt1 = input(">>> ")
             print ("Enter your new password again")
-            pass_attempt2 = raw_input(">>> ")
+            pass_attempt2 = input(">>> ")
             if pass_attempt1 == pass_attempt2:
                 new_password = pass_attempt1
                 break
@@ -112,8 +112,8 @@ def login():
     usernames = users.as_matrix(['USERNAME', 'PASSWORD'])
     #username check
     while True:
-        input_username = raw_input("Username: ").lower()
-        input_password = raw_input("Password: ")
+        input_username = input("Username: ").lower()
+        input_password = input("Password: ")
         user_password = ""
         user_index = 0
         valid_username_flag = False
@@ -132,7 +132,7 @@ def login():
             print ("The username or password you entered is incorrect.")
             #handle allowing user to create account
             while True:
-                try_again = raw_input("Would you like to try again? ").lower()
+                try_again = input("Would you like to try again? ").lower()
                 if try_again in affirmative:
                     break
                 elif try_again in negative:
@@ -163,7 +163,7 @@ def begin_app():
     print ("|                     ========                       |")
     print ("======================================================")
     while True:
-        response = str(raw_input("Do you have an account? $ ")).lower()
+        response = str(input("Do you have an account? $ ")).lower()
         if response in affirmative:
             break
         elif response in negative:
