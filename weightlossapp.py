@@ -171,3 +171,6 @@ def begin_app():
             break
         else:
             print ("I'm sorry, I did not understand your response.")
+
+begin_app()
+main()
